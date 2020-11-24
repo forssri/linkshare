@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "linkshare-0407"
+  },
+  "targets": {
+    "linkshare-0407": {
+      "hosting": {
+        "linkshare": [
+          "linkshare-0407"
+        ]
+      }
+    }
+  }
+}

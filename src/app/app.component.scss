@@ -1,0 +1,58 @@
+.container {
+  padding: 20px;
+}
+
+.user-container {
+  display: flex;
+  flex-direction: colum;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-item-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .add-item-form {
+    width: 70%;
+    .add-item-input {
+      width: 100%;
+    }
+  }
+  button {
+    margin-left: 20px;
+  }
+}
+
+.list-item-container {
+  overflow-y: auto;
+  height: 80vh;
+  max-width: 100%;
+  .item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    .item-content {
+      display: flex;
+      align-items: center;
+      .item-avatar {
+        width: 44px;
+        border-radius: 50%;
+        margin-right: 10px;
+      }
+    }
+    .item-checkbox {
+      margin-left: 10px;
+    }
+  }
+}

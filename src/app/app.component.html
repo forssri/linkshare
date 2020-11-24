@@ -1,7 +1,38 @@
-<input [(ngModel)]="link"/>
-<button (click)="addLink()">Add</button>
-<ul>
-  <li class="text" *ngFor="let link of links | async">
-    <a href={{link.url}}>{{link.url}}</a>
-  </li>
-</ul>
+<div class="container">
+  <div *ngIf="user$ | async; let user; else showLogin">
+    <div class="user-container">
+      <h1>Hello {{ user.displayName }}!</h1>
+      <button mat-flat-button color="primary" (click)="logout()">Logout</button>
+    </div>
+    <div class="add-item-container">
+      <form class="add-item-form" [formGroup]="linkForm">
+        <mat-form-field class="add-item-input">
+          <mat-label>Link</mat-label>
+          <input matInput placeholder="Enter link to add" formControlName="linkUrl">
+        </mat-form-field>
+      </form>
+
+      <button mat-flat-button color="primary" (click)="addLink()">Add</button>
+    </div>
+
+    <div class="list-item-container">
+      <mat-list role="list">
+        <mat-list-item *ngFor="let link of links | async">
+          <div class="item">
+            <div class="item-content">
+              <img class="item-avatar" src="{{link.createdBy.photoURL}}" alt="user" />
+              <a href={{link.url}}>{{link.url}}</a>
+            </div>
+            <mat-checkbox class="item-checkbox" (change)="updateLink(link)" [checked]="link.done"></mat-checkbox>
+          </div>
+        </mat-list-item>
+      </mat-list>
+    </div>
+  </div>
+  <ng-template #showLogin>
+    <div class="login-container">
+      <h1>Please login to continue</h1>
+      <button mat-flat-button color="primary" (click)="login()">Login with Google</button>
+    </div>
+  </ng-template>
+</div>

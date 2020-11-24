@@ -120,6 +120,10 @@
               "devServerTarget": "linkshare:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     }
